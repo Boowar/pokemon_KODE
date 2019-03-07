@@ -24,3 +24,12 @@ export function getSets() {
     })
   }
 }
+
+/* export function getSet(idSet) {
+  return dispatch => {
+    dispatch({
+      type: 'GET_SET_REQUEST',
+      payload: idSet,
+    })
+  }
+} */

@@ -6,7 +6,7 @@ import { getCards } from '../actions/CardsActions'
 function mapStateToProps(store) {
   return {
     cards: store.cards,
-    set: store.set,
+    set: store.sets,
   }
 }
 
@@ -18,7 +18,7 @@ function mapDispatchToProps(dispatch) {
 
 class CardsContainer extends Component {
   componentDidMount() {
-    console.log(this.props)
+    console.log(this.props.cards)
     this.props.getCards(this.props.cards)
   }
   render() {

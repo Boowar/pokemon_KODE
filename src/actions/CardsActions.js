@@ -4,8 +4,8 @@ export const GET_CARDS_FAIL = 'GET_CARDS_FAIL'
 
 let cardsArr = []
 
-function makeCards(cardsArr, set) {
-  return fetch(`https://api.pokemontcg.io/v1/cards?setCode=${set}`)
+function makeCards(cardsArr, idSet) {
+  return fetch(`https://api.pokemontcg.io/v1/cards?setCode=${idSet}`)
     .then(result => result.json())
     .then(data => {
       data.cards.forEach(item => cardsArr.push(item))
@@ -14,13 +14,13 @@ function makeCards(cardsArr, set) {
     })
 }
 
-export function getCards(set) {
+export function getCards(idSet) {
   return dispatch => {
     dispatch({
       type: GET_CARDS_REQUEST,
-      payload: set,
+      payload: idSet,
     })
-    makeCards(cardsArr, set).then(cards =>
+    makeCards(cardsArr, idSet).then(cards =>
       dispatch({
         type: GET_CARDS_SUCCESS,
         payload: cards,
