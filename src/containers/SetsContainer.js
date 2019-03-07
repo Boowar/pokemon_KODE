@@ -18,6 +18,7 @@ class SetsContainer extends Component {
   componentDidMount() {
     this.props.getSets()
   }
+  componentWillUnmount() {}
   render() {
     const { sets, getSets } = this.props
     return (

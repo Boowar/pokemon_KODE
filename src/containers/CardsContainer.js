@@ -18,11 +18,10 @@ function mapDispatchToProps(dispatch) {
 
 class CardsContainer extends Component {
   componentDidMount() {
-    console.log(this.props.set)
-    this.props.getCards(this.props.set)
+    console.log(this.props)
+    this.props.getCards(this.props.cards)
   }
   render() {
-    console.log(this.props.set)
     const { cards, getCards } = this.props
     return (
       <Cards

@@ -9,11 +9,13 @@ class Cards extends Component {
     if (isFetching) {
       return <p>Загрузка...</p>
     } else {
-      return cards.map(card => (
+      return console.log(
+        'cards'
+      ) /* cards.map(card => (
         <div key={card.id} className='card'>
           <img src={card.imageUrlHiRes} alt={card.name} />
         </div>
-      ))
+      )) */
     }
   }
 
