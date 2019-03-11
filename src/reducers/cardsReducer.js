@@ -18,7 +18,7 @@ export function cardsReducer(state = initialState, action) {
     case GET_CARDS_SUCCESS:
       return { ...state, cards: action.payload, isFetching: false, error: '' }
     case GET_CARDS_FAIL:
-      return { ...state, error: action.payload.message, isFetching: false }
+      return { ...state, error: action.payload, isFetching: false }
     default:
       return state
   }

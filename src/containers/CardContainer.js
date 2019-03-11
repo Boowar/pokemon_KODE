@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Cards from '../components/Cards'
 import { getCards } from '../actions/CardsActions'
+import CardGallery from '../components/CardGallery'
+import PropTypes from 'prop-types'
 
 function mapStateToProps(store) {
   return {
@@ -15,26 +16,30 @@ function mapDispatchToProps(dispatch) {
     getCards: set => dispatch(getCards(set)),
   }
 }
-
-class CardsContainer extends Component {
+/**
+ * Отвечает за получение информации о выбранном наборе и передаччи информации в галерею карт.
+ */
+class CardContainer extends Component {
   componentDidMount() {
-    console.log(this.props.cards)
-    this.props.getCards(this.props.cards)
+    this.props.getCards(this.props.match.params.selectedSet)
   }
   render() {
-    const { cards, getCards } = this.props
+    const { cards } = this.props
     return (
-      <Cards
+      <CardGallery
         cards={cards}
         isFetching={cards.isFetching}
         error={cards.error}
-        getCards={getCards}
       />
     )
   }
 }
 
+CardContainer.propTypes = {
+  cards: PropTypes.object.isRequired,
+}
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CardsContainer)
+)(CardContainer)
